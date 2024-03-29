@@ -7,8 +7,14 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <input type="text" id="pokemon">
-    <button class="btn">search</button>
-    <div id="container"></div>
+    <div class="wrapper">
+      <div class="card">
+        <div class="header">
+          <input type="text" id="pokemon" data-pokemon-input>
+          <button class="btn" data-search-btn>search</button>
+        </div>
+        <div id="content" data-info-container></div>
+      </div>
+    </div>
   </body>
 </html>

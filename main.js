@@ -1,8 +1,8 @@
 import './style.css'
 /* import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg' */
-import { getPokemon } from './pkmnFetch.js'
+import { getPokemon } from './pkmn.service.js'
+import { render } from './siteUI.js';
 
-console.log('ciao');
 
-getPokemon('scyther')
+getPokemon('bulbasaur');
