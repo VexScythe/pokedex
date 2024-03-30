@@ -1,13 +1,15 @@
 import { getPokemon } from './pkmn.service.js'
-import { render } from './siteUI.js';
+import { render, removeError } from './siteUI.js';
 
 const pokemonInput = document.querySelector('[data-pokemon-input]')
 const searchBtn = document.querySelector('[data-search-btn]')
+const header = document.querySelector('[data-card-header]')
 
 export function init() {
     searchBtn.addEventListener('click', () => {
         searchPkmn()
         pokemonInput.value = '';
+        removeError()
     });
 }
 

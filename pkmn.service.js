@@ -1,3 +1,5 @@
+import { onError } from "./siteUI";
+
 export async function getPokemon(name) {
     const URL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -8,6 +10,7 @@ export async function getPokemon(name) {
         const descriptionData = await descriptionResponse.json();
         return normalizer(data, descriptionData);
     }catch (error) {
+        onError();
         throw error;
     }
 }
@@ -19,6 +22,6 @@ function normalizer(data, descriptionData){
         types: data.types.map(type => type.type.name),
         sprite: data.sprites.front_default,
         sound: data.cries.latest,
-        description: descriptionData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text
+        description: descriptionData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text.replace(/\f/g, ' ')
     }
 }

@@ -1,5 +1,5 @@
 const container = document.querySelector('[data-info-container]')
-
+const header = document.querySelector('[data-card-header]')
 
 export function render(data) {
     clearElement(container);
@@ -47,5 +47,18 @@ function description(data) {
 function clearElement(element) {
     while(element.firstChild) {
         element.removeChild(element.firstChild);
+    }
+}
+
+export function onError() {
+    const errorSpan = document.createElement('span')
+    errorSpan.classList.add('input__error')
+    header.appendChild(errorSpan)
+    errorSpan.textContent = `Pokemon doesn't exist`
+}
+
+export function removeError() {
+    if (header.lastChild.tagName.toLowerCase() === 'span') {
+        header.removeChild(header.lastChild)
     }
 }
